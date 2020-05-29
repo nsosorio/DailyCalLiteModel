@@ -1,0 +1,112 @@
+define AD_SacFea {timeseries kind 'FLOW-ACCRDEPL' units 'CFS'}
+define AD_SacFea_Actual {lower unbounded upper unbounded kind 'FLOW-ACCRDEPL' units 'CFS'}
+goal setAD_SacFea_Actual1{
+	lhs AD_SacFea_Actual
+	case positive{
+		condition AD_SacFea>=0
+		rhs AD_SacFea
+		lhs>rhs constrain
+		lhs<rhs penalty 10000
+	}
+	case negative{
+		condition AD_SacFea<0
+		rhs AD_SacFea
+		lhs>rhs penalty 10000
+		lhs<rhs constrain
+	}
+	
+}
+goal setAD_SacFea_Actual2{
+	lhs AD_SacFea_Actual
+	case positive{
+		condition AD_SacFea>=0
+		rhs 0
+		lhs>rhs penalty 0
+		lhs<rhs constrain
+	}
+	case negative{
+		condition AD_SacFea<0
+		rhs 0
+		lhs>rhs constrain
+		lhs<rhs penalty 0
+	}
+	
+}
+define short_AD_SacFea {lower unbounded upper unbounded kind 'Shortage-Flow' units 'cfs'}
+goal short_ADSacFea {short_AD_SacFea=AD_SacFea_Actual-AD_SacFea}
+
+!Feather River
+define AD_Therm {timeseries kind 'FLOW-ACCRDEPL' units 'CFS'}
+define AD_Therm_Actual {lower unbounded upper unbounded kind 'FLOW-ACCRDEPL' units 'CFS'}
+goal setAD_Therm_Actual1{
+	lhs AD_Therm_Actual
+	case positive{
+		condition AD_Therm>=0
+		rhs AD_Therm
+		lhs>rhs constrain
+		lhs<rhs penalty 10000
+	}
+	case negative{
+		condition AD_Therm<0
+		rhs AD_Therm
+		lhs>rhs penalty 10000
+		lhs<rhs constrain
+	}
+	
+}
+goal setAD_Therm_Actual2{
+	lhs AD_Therm_Actual
+	case positive{
+		condition AD_Therm>=0
+		rhs 0
+		lhs>rhs penalty 0
+		lhs<rhs constrain
+	}
+	case negative{
+		condition AD_Therm<0
+		rhs 0
+		lhs>rhs constrain
+		lhs<rhs penalty 0
+	}
+	
+}
+define short_AD_Therm {lower unbounded upper unbounded kind 'Shortage-Flow' units 'cfs'}
+goal short_ADTherm {short_AD_Therm=AD_Therm_Actual-AD_Therm}
+
+define AD_YubFea {timeseries kind 'FLOW-ACCRDEPL' units 'CFS'}
+define AD_YubFea_Actual {lower unbounded upper unbounded kind 'FLOW-ACCRDEPL' units 'CFS'}
+goal setAD_YubFea_Actual1{
+	lhs AD_YubFea_Actual
+	case positive{
+		condition AD_YubFea>=0
+		rhs AD_YubFea
+		lhs>rhs constrain
+		lhs<rhs penalty 10000
+	}
+	case negative{
+		condition AD_YubFea<0
+		rhs AD_YubFea
+		lhs>rhs penalty 10000
+		lhs<rhs constrain
+	}
+	
+}
+goal setAD_YubFea_Actual2{
+	lhs AD_YubFea_Actual
+	case positive{
+		condition AD_YubFea>=0
+		rhs 0
+		lhs>rhs penalty 0
+		lhs<rhs constrain
+	}
+	case negative{
+		condition AD_YubFea<0
+		rhs 0
+		lhs>rhs constrain
+		lhs<rhs penalty 0
+	}
+	
+}
+define short_AD_YubFea {lower unbounded upper unbounded kind 'Shortage-Flow' units 'cfs'}
+goal short_ADYubFea {short_AD_YubFea=AD_YubFea_Actual-AD_YubFea}
+

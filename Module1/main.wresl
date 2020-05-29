@@ -1,0 +1,25 @@
+! Main WRESL Files contains the paths to run the model.
+!Date Modified: 04/23/2010; By: Hao Xie
+! 5/18/10 Added logic for two cycles to accommodate daily weir flows Tom FitzHugh BOR
+! comment out daily weir flows for corroboration study; Richard Chen DWR
+! 4/25/11 Cleanup Codes to remove CS2CL,CL, and change Ave to AVG. Richard Chen, DWR
+! 9/28/12 Add shortage code, Z.Q. Richard Chen, DWR
+! 2/01/13 Changed all includes to local and added dynamic SJR Tom FitzHugh BOR
+! 9/16/13 Added D-1485 code. Holly Canada DWR
+
+! All variables are local in wresl+ parser 
+
+
+
+SEQUENCE CYCLE1 {
+    model   module1
+    order   1
+	}
+ 
+MODEL FAM {              !CYCLE 1
+    INCLUDE 'Run\System.wresl'
+
+}
+
+
+

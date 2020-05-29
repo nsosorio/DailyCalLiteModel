@@ -1,0 +1,45 @@
+{
+    "metadata": {
+        "title": "Oorville Reservoir",
+        "description": "A model with Oroville reservoir.",
+        "author": "Nicole Osorio"
+    },
+    "timestepper": {
+        "start": "2017-01-01",
+        "end": "2017-12-31",
+        "timestep": 1
+    },
+    "nodes": [
+        {
+            "name": "I_OROVL",
+            "type": "dataframe",
+            "url": "data/inflow_oro_2017.csv",
+            "column": "FLOW TAF",
+            "index_col": "DATE",
+            "parse_dates": true
+        },
+        {
+            "name": "S_OROVL",
+            "type": "Storage",
+            "max_volume": 3537.577,
+            "initial_volume": 100,
+            "min_volume": 0,
+            "outputs": 0
+        },
+        {
+            "name": "C_OROVL",
+            "type": "Link"
+        }
+    ],
+    "edges": [
+        ["I_OROVL", "S_OROVL"],
+        ["S_OROVL", "C_OROVL"]
+    ],
+    "recorders": {
+        "recorder": {
+            "type": "NumpyArrayNodeRecorder",
+            "node": "S_OROVL"
+        }
+    }
+    
+}
