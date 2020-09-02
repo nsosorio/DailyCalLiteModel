@@ -16,7 +16,7 @@ SEQUENCE CYCLE1 {
     order   1
 	}
  
-MODEL FAM {              !CYCLE 1
+MODEL module1 {              !CYCLE 1
     INCLUDE 'Run\System.wresl'
 
 }

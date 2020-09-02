@@ -1,19 +1,7 @@
-if int(Dynamic_SJR)==1 {
+
 
 Objective obj = {
-[C_Orovl,5500],
-[C_Therm,5500],
-[C_YubFea,5500], 
+[C_Orovl,5500]
+![C_Therm,5500],
+![C_YubFea,5500], 
 }
-
-if int(Dynamic_SJR)==0 {
-
-Objective obj = {
-[C_Orovl,5500],
-[C_Therm,5500],
-[C_YubFea,5500], 
-}
-
-
-
-

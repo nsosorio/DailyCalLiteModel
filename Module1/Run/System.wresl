@@ -13,7 +13,7 @@ INCLUDE 'weight-table.wresl'
 
 !****CONSTRAINTS****   
 INCLUDE 'constraints-connectivity-table.wresl'      
-!INCLUDE 'reservoir-table.wresl'
+INCLUDE 'reservoir-table.wresl'
 !INCLUDE 'delivery-table.wresl'
 !INCLUDE 'AccrDepl-table.wresl'
 !INCLUDE 'SOD_SWP_Terminal_Res_Ops.wresl'

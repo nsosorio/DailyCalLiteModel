@@ -1,2 +1,1 @@
-define S_Orovl {value 0.} !OROVILLE LAKE AKA RES_NUM = 6
-
+define S_OROVL       {std kind 'STORAGE' units 'TAF'} !LAKE OROVILLE 
