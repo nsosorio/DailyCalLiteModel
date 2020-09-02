@@ -1,0 +1,14 @@
+*.bak
+*.config
+*.config.par
+*.launch
+*.project
+*=WreslCheck_main=.log
+*.dsc
+*.dsd
+*.dsk
+
+Error_evaluation.txt
+
+# Folders
+Module1/Run/DSS/Output/
