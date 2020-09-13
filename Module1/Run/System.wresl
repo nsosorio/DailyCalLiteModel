@@ -9,11 +9,11 @@ This is the top level include file for CalLite system definition files.
 !*******ARCS*******                 
 INCLUDE 'inflow-table.wresl'
 INCLUDE 'channel-table.wresl'
+!INCLUDE 'delivery-table.wresl'
 INCLUDE 'weight-table.wresl'
 
 !****CONSTRAINTS****   
 INCLUDE 'constraints-connectivity-table.wresl'      
 INCLUDE 'reservoir-table.wresl'
-!INCLUDE 'delivery-table.wresl'
 !INCLUDE 'AccrDepl-table.wresl'
 !INCLUDE 'SOD_SWP_Terminal_Res_Ops.wresl'
