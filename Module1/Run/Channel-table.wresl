@@ -1,9 +1,9 @@
 define C_Orovl {lower 0. upper 12913.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !FEATHER RIVER DOWNSTREAM OF OROVILLE
-!define minflow_C_Orovl {select minflow from minflow where C_arc=200.1,month=month} !use values in the range of 700-800 to replace 600 cfs
-!define C_Orovl_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
-!define C_Orovl_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
-!goal C_Orovltotal {C_Orovl=C_Orovl_MIF+C_Orovl_EXC}
-!goal C_Orovlminflow {C_Orovl_MIF < minflow_C_Orovl}
+define minflow_C_Orovl {select minflow from minflow where C_arc=200.1,month=month} !use values in the range of 700-800 to replace 600 cfs
+define C_Orovl_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
+define C_Orovl_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
+goal C_Orovltotal {C_Orovl=C_Orovl_MIF+C_Orovl_EXC}
+goal C_Orovlminflow {C_Orovl_MIF < minflow_C_Orovl}
 !define C_Therm {lower 0. upper 12913.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !Feather River Downstream of  THERMOLITO  Return
 !define C_Therm_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
 !define C_Therm_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
