@@ -1,0 +1,8 @@
+/****
+demands_69_defs.wresl
+Hao Xie DWR 6/17/2010
+establish timeseries defines for DSA 69 demands
+****/
+
+define dem_d6_PWR     {timeseries kind 'DEMAND-SWP-WR' units 'TAF'}
+
