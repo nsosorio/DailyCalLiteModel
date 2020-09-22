@@ -1,0 +1,17 @@
+! Main WRESL Files contains the paths to run the model.
+SEQUENCE CYCLE1 {
+    model   BASE
+    order   1
+    }
+
+MODEL BASE {
+    INCLUDE 'hydrology\demands\demands_defs.wresl'
+	INCLUDE 'NorthofDelta\NOD.wresl'
+	INCLUDE 'System\System.wresl'
+    INCLUDE 'System\constraints-connectivity-table.wresl'     
+    INCLUDE 'System\weight-table.wresl'
+    INCLUDE [LOCAL] 'Shortage\shortage.wresl' 	
+
+
+
+}
