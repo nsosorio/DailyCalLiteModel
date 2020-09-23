@@ -6,6 +6,7 @@ SEQUENCE CYCLE1 {
 
 MODEL BASE {
     INCLUDE 'hydrology\demands\demands_defs.wresl'
+    INCLUDE 'swp_dellogic\SwpDeliveryLogic.wresl'
 	INCLUDE 'NorthofDelta\NOD.wresl'
 	INCLUDE 'System\System.wresl'
     INCLUDE 'System\constraints-connectivity-table.wresl'     

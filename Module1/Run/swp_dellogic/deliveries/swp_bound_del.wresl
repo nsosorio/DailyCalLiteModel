@@ -14,6 +14,8 @@ the SWP PDR (Project Diversion Requirement?)
 !First define the Allocated Diversion limits based on contract cuts
 define ad_d6_pwr    {value dem_d6_pwr*taf_cfs}
 
+define dem_prj_69_init {value max((prj_dr69*taf_cfs - minpump_69_prj*perc_dr69*taf_cfs), 0.0)}
+
 !Now remove outdoor M&I demand for Butte County and the City of Yuba
 define demand_prj_69 {value max(dem_prj_69_init/*-dem_d201_pomi*taf_cfs-dem_d204_pomi*taf_cfs)*/, 0.0)}
 

@@ -12,3 +12,8 @@ define d6_prj       {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
 define d6_pwr       {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
 goal   split_d6     {d6 = d6_prj}      !Palermo Canal
 goal   split_d6_prj {d6_prj = d6_pwr}  !Palermo Canal
+
+define prj_dr69 {VALUE dr69*perc_dr69 }
+! define minimum monthly groundwater pumping (using minimum value from  1980-1993 Historical Level CVGSM run)
+! minimum pumping cannot be more than the diversion requirement
+define minpump_69_prj {VALUE min(mingw_69*perc_dr69,prj_dr69)  }       ! (UNITS = TAF)
