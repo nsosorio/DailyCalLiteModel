@@ -88,7 +88,7 @@ define minflow_C_Therm {
 !=========================================================================
 ! NSO comment out for now until Yuba components are integrated 
 !define minflow_C_YubFea {timeseries kind 'FLOW-MIN-REQUIRED' units 'CFS'}
-goal meetC_Therm_Minflow {C_Therm_MIF < max(minflow_C_Therm /*, minflow_c_YubFea*/)}
+goal meetC_Therm_Minflow {C_Therm_MIF < max(minflow_C_Therm)}
 
 !=========================================================================
 ! DWR maintains flow at the "Mouth of Feather River" based on requirements of diversion 
@@ -123,7 +123,7 @@ define C_Orovl_IBU {std kind 'flow-channel' units 'cfs'}  !Weight with -3000 to 
 define C_Orovl_EXP {std kind 'flow-channel' units 'cfs'}
 goal split_C_Orovl {C_Orovl = C_Orovl_IBU + C_Orovl_EXP}
 
-define C_Orovl_EXP_max_ {value max(0., I_Orovl + (S_Orovl(-1) - 1000. - DrainTar_buffer)*taf_cfs)}
+define C_Orovl_EXP_max_ {value max(0., I_Orovl + (S_Orovl(-1) - 1000.)*taf_cfs)}
 
 goal lim_C_Orovl_EXP {C_Orovl_EXP < C_Orovl_EXP_max_}
 
