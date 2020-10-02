@@ -88,7 +88,7 @@ define minflow_C_Therm {
 !=========================================================================
 ! NSO comment out for now until Yuba components are integrated 
 !define minflow_C_YubFea {timeseries kind 'FLOW-MIN-REQUIRED' units 'CFS'}
-goal meetC_Therm_Minflow {C_Therm_MIF < max(minflow_C_Therm)}
+goal meetC_Therm_Minflow {C_Therm_MIF < minflow_C_Therm}
 
 !=========================================================================
 ! DWR maintains flow at the "Mouth of Feather River" based on requirements of diversion 

@@ -9,5 +9,5 @@ includes minimum flows and setting reservoir storage levels.
 *************************************/
 include 'Deliveries\SWP_Project_Del.wresl' 
 Include 'Feather\feather_special.wresl'
-!Include 'Feather\OroRuleCurv.wresl'
+Include 'Feather\OroRuleCurv.wresl'
 Include 'Feather\ThermalitoPower.wresl'
