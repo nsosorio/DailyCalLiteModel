@@ -1,2 +1,0 @@
-define S_Orovl {std kind 'STORAGE' units 'TAF'}
-define S_Orovllevel5 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
