@@ -1,0 +1,34 @@
+! Main WRESL Files contains the paths to run the model.
+SEQUENCE CYCLE1 {
+    model   BASE
+    order   1
+    }
+
+group Tdomain {
+	
+	! Define start month and start water year
+	define bgnwy {value 2019}
+	define endwy {value 2020}
+	define bgnmo {value AUG}
+	
+	! Conversion factors
+	define daysindv {alias daysin kind 'DAYS' units 'days'}
+	define cfs_cfm     { value daysin * 86400.0}
+	define taf_cfm {value 43560*1000}  !AF/month to ft^3/month
+}
+MODEL block1 {
+    INCLUDE 'System\System.wresl'
+	
+}
+MODEL block2 {
+    INCLUDE 'System\constraints-connectivity-table.wresl'     
+    !INCLUDE 'System\weight-table.wresl'
+
+}
+
+MODEL base {
+include group Tdomain
+include model block1
+include model block2	
+
+}

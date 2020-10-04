@@ -1,0 +1,9 @@
+/**********************
+Connectivity-table.wresl
+
+Z.Q. Richard Chen DWR 10/5/2012
+
+Add 3 nodes CCWDIF, SODIF, and Freeport in order to implement IF operation.
+***********************/
+goal continuityShsta {I_Shsta-C_Shsta=0} !Shasta Lake
+

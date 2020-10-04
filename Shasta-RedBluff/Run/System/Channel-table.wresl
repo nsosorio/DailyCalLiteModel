@@ -1,0 +1,1 @@
+define C_Shsta {lower 0. upper 4858.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !SACRAMENTO RIVER DOWNSTREAM OF SHASTA LAKE
