@@ -5,5 +5,5 @@ Z.Q. Richard Chen DWR 10/5/2012
 
 Add 3 nodes CCWDIF, SODIF, and Freeport in order to implement IF operation.
 ***********************/
-goal continuityShsta {I_Shsta-C_Shsta=0} !Shasta Lake
+goal continuityShsta {I_Shsta-C_Shsta-F_Shsta-E_Shsta=S_Shsta*taf_cfs-S_Shsta(-1)*taf_cfs} !Shasta Lake
 

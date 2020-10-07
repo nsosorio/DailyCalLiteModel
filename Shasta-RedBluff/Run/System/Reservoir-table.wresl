@@ -1,0 +1,27 @@
+define S_Shstalevel1 {value 550.}
+define S_Shsta_1 {std kind 'STORAGE-ZONE' units 'TAF'}
+goal S_ShstaZone1 {S_Shsta_1 < S_Shstalevel1}
+define S_Shstalevel2 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
+define S_Shsta_2 {std kind 'STORAGE-ZONE' units 'TAF'}
+goal S_ShstaZone2 {S_Shsta_2 < S_Shstalevel2-S_Shstalevel1}
+define S_Shsta_3 {std kind 'STORAGE-ZONE' units 'TAF'}
+define S_Shstalevel4 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
+define S_Shsta_4 {std kind 'STORAGE-ZONE' units 'TAF'}
+define S_Shstalevel5 {timeseries kind 'STORAGE-LEVEL' units 'TAF'}
+define S_Shsta_5 {std kind 'STORAGE-ZONE' units 'TAF'}
+define S_Shstalevel6 {value 4552.}
+define S_Shsta_6 {std kind 'STORAGE-ZONE' units 'TAF'}
+define S_Shsta {std kind 'STORAGE' units 'TAF'} !SHASTA LAKE AKA RES_NUM = 4
+goal storage_Shsta {S_Shsta=S_Shsta_1+S_Shsta_2+S_Shsta_3+S_Shsta_4+S_Shsta_5+S_Shsta_6}
+define F_Shsta {std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}
+define E_Shsta {lower unbounded kind 'EVAPORATION' units 'CFS'}
+define A_Shsta {std kind 'SURFACE-AREA' units 'ACRES'}
+define evap_S_Shsta {timeseries kind 'EVAPORATION-RATE' units 'IN'}
+define A_Shstalast {select area from res_info given storage=1000*(S_Shsta(-1)+S_ShstaE(-1))  use linear where res_num=4}
+define A_Shstaforward {select area from res_info given storage=1050*(S_Shsta(-1)+S_ShstaE(-1))  use linear where res_num=4}
+define A_Shstaback {select area from res_info given storage=950*(S_Shsta(-1)+S_ShstaE(-1))  use linear where res_num=4}
+define coefev_Shsta {value (A_Shstaforward - A_Shstaback)/(100*max(0.01,(S_Shsta(-1)+S_ShstaE(-1)) ))}
+goal area_Shsta {A_Shsta=A_Shstalast+1000*coefev_Shsta*(S_Shsta+S_ShstaE)-1000*coefev_Shsta*(S_Shsta(-1)+S_ShstaE(-1)) }
+goal evap_Shsta {E_Shsta*cfs_af=(evap_S_Shsta/24)*A_Shstalast+(evap_S_Shsta/24)*A_Shsta}
+define relcap_Shsta {select discharge from res_info given storage=1000*S_Shsta(-1) use linear where res_num=4}
+goal maxrelease_Shsta {C_Shsta<relcap_Shsta}
