@@ -17,11 +17,11 @@ define F_Shsta {std kind 'FLOW-SPILL-NON-RECOV' units 'CFS'}
 define E_Shsta {lower unbounded kind 'EVAPORATION' units 'CFS'}
 define A_Shsta {std kind 'SURFACE-AREA' units 'ACRES'}
 define evap_S_Shsta {timeseries kind 'EVAPORATION-RATE' units 'IN'}
-define A_Shstalast {select area from res_info given storage=1000*(S_Shsta(-1)+S_ShstaE(-1))  use linear where res_num=4}
-define A_Shstaforward {select area from res_info given storage=1050*(S_Shsta(-1)+S_ShstaE(-1))  use linear where res_num=4}
-define A_Shstaback {select area from res_info given storage=950*(S_Shsta(-1)+S_ShstaE(-1))  use linear where res_num=4}
-define coefev_Shsta {value (A_Shstaforward - A_Shstaback)/(100*max(0.01,(S_Shsta(-1)+S_ShstaE(-1)) ))}
-goal area_Shsta {A_Shsta=A_Shstalast+1000*coefev_Shsta*(S_Shsta+S_ShstaE)-1000*coefev_Shsta*(S_Shsta(-1)+S_ShstaE(-1)) }
+define A_Shstalast {select area from res_info given storage=1000*(S_Shsta(-1))  use linear where res_num=4}
+define A_Shstaforward {select area from res_info given storage=1050*(S_Shsta(-1))  use linear where res_num=4}
+define A_Shstaback {select area from res_info given storage=950*(S_Shsta(-1))  use linear where res_num=4}
+define coefev_Shsta {value (A_Shstaforward - A_Shstaback)/(100*max(0.01,(S_Shsta(-1)) ))}
+goal area_Shsta {A_Shsta=A_Shstalast+1000*coefev_Shsta*(S_Shsta)-1000*coefev_Shsta*(S_Shsta(-1)) }
 goal evap_Shsta {E_Shsta*cfs_af=(evap_S_Shsta/24)*A_Shstalast+(evap_S_Shsta/24)*A_Shsta}
 define relcap_Shsta {select discharge from res_info given storage=1000*S_Shsta(-1) use linear where res_num=4}
 goal maxrelease_Shsta {C_Shsta<relcap_Shsta}

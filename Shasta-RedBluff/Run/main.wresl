@@ -21,12 +21,13 @@ MODEL block1 {
 	
 }
 MODEL block2 {
-    INCLUDE 'System\constraints-connectivity-table.wresl'     
-    !INCLUDE 'System\weight-table.wresl'
+    INCLUDE 'System\constraints-connectivity-table.wresl'  
+    INCLUDE 'NorthofDelta\NOD.wresl'   
+    INCLUDE 'System\weight-table.wresl'
 
 }
 
-MODEL base {
+MODEL BASE {
 include group Tdomain
 include model block1
 include model block2	

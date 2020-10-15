@@ -1,0 +1,6 @@
+C_OROVL_1 = (1-2KX)/(2K(1-X)+1)
+C_OROVL_2 = (1+2KX)/(2K(1-X)+1)
+C_OROVL_3 = (2K(1-X)-1)/(2K(1-X)+1)
+
+C_OROVL < C_OROVL_1()
+

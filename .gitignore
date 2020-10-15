@@ -8,7 +8,10 @@
 *.dsd
 *.dsk
 
+# File names
 Error_evaluation.txt
+Error_solving.txt
 
 # Folders
 Module1/Run/DSS/Output/
+Shasta-RedBluff/Run/DSS/Output/
