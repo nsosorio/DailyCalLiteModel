@@ -1,3 +1,9 @@
 define D_Orovl_P {std kind 'FLOW-DELIVERY' units 'CFS'} !Project Diversion from Oroville Lake
 define D_Orovl {std kind 'FLOW-DELIVERY' units 'CFS'} !Diversion from Oroville Lake
 goal Diversion_Orovl {D_Orovl = D_Orovl_P}
+
+define demand_D_Daguer_NP {timeseries kind 'DEMAND' units 'CFS'}!Dagurre Point Non-Project 
+define D_Daguer_NP {std kind 'FLOW-DELIVERY' units 'CFS'} !Non Project Diversion at Daguerre Point
+define D_Daguer {std kind 'FLOW-DELIVERY' units 'CFS'} !Diversion at Daguerre Point
+goal meet_D_Daguer_NP {D_Daguer_NP = demand_D_Daguer_NP}
+goal Diversion_Daguer {D_Daguer = D_Daguer_NP}
