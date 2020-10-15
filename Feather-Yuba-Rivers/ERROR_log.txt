@@ -1,0 +1,31 @@
+The goal of this file is to keep track of the current code issues.
+Format:
+Date
+Objective of code change leading up to issue
+Few sentences or a paragraph explaining the issue
+Helpful error messages
+
+09/26
+Objective: Implement C_THERM constraints
+Main driver of error is implementation of feather_special which draws upon non-Thermalito related changes.
+For some reason, the error is due to missing INIT.DSS data.
+
+WRIMS error message
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias c_therm
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias s_orovl
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:The data requested for timeseries s_orovllevel5 is outside of the time frame provided in dss file.
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias c_therm
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias s_orovl
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:The data requested for timeseries s_orovllevel5 is outside of the time frame provided in dss file.
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias c_therm
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias s_orovl
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:The data requested for timeseries s_orovllevel5 is outside of the time frame provided in dss file.
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias c_therm
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias s_orovl
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:The data requested for timeseries s_orovllevel5 is outside of the time frame provided in dss file.
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias c_therm
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:Initial file doesn't have data for decision vairiable/alias s_orovl
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:24) # Error :minflow_c_therm:The data requested for timeseries s_orovllevel5 is outside of the time frame provided in dss file.
+(e:\nicol\googledrive\_gradschool\callite\featherriver\module1\run\northofdelta\feather\feather_special.wresl:91) # Error :meetc_therm_minflow:required (...)+ loop did not match anything at input ')'
+Cycle 1 in 2019/8/1 Done. (base)
+paused

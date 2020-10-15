@@ -1,0 +1,2 @@
+! Water Rights Shortage
+define short_d6_pwr    {alias target_d6_pwr    -    d6_pwr  kind 'delivery-shortage' units 'cfs'}
