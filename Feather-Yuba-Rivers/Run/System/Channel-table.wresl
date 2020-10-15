@@ -12,6 +12,6 @@ goal C_Thermtotal {C_Therm=C_Therm_MIF+C_Therm_EXC}
 !define C_YubFea_MIF {std kind 'FLOW-MIN-INSTREAM' units 'CFS'}
 !define C_YubFea_EXC {std kind 'FLOW-EXCESS-INSTREAM' units 'CFS'}
 !goal C_YubFeatotal {C_YubFea=C_YubFea_MIF+C_YubFea_EXC}
-!define C_Daguer {lower 0. upper 6150.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !YUBA RIVER
+define C_Daguer {lower 0. upper 6150.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !YUBA RIVER
 !define C_SacFea {lower 0. upper 6150.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !SACRAMENTO RIVER DOWNSTREAM OF FEATHER RIVER CONFLUENCE
 
