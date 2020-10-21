@@ -8,4 +8,6 @@ and Yuba Feather project deliveries
 **************************************/
 
 goal setD_Orovl_P{D_Orovl_P=d6_pwr}
+goal setD_Therm_P{D_Therm_P=d7a_pwr+d7a_pag+d7a_prf+d7b_pwr+d7b_pag+d7b_prf+d7c+d201_pimi+d201_pomi
+     +d202_pwr}
 

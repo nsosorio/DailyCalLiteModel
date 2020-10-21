@@ -15,6 +15,7 @@ Objective obj = {
 [F_Orovl,-100000],
 
 [D_Daguer_NP,9999],
+[D_Therm,0],
 ![C_Therm,5500],
 ![C_YubFea,5500], 
 }
