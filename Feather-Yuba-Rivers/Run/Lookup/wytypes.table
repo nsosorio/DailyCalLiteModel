@@ -1,0 +1,14 @@
+! This table is used to look up year-type indices (Dustin Jones 11/22/99)
+! Updated 06/09/2005 by Messele Ejeta. SACindex and SJRindex updated using values from CDEC.
+! AmerD893 updated using the sum of unimpaired inflow to Folsom from April to September
+! SHASTAindex updated based on Full Natural Inflow to Shasta. If total inflow to Shasta in any 
+! given year is less than 3.2 maf, it is Shasta critical year (value of 4). Also, if the total
+! inflow in any two consecutive years is such that the total inflow of each year is less than
+! 4.0 maf and the total consecutive two year deficiency is higher than 0.8 maf below the two
+! year total of 8.0 mark, the second year becomes Shasta critical year. 
+! FEATHERindex was updated in a similar fashion as Shasta Index. 
+! Amer403030 is not used, so it was not updated. 
+wytypes																																																																													
+WATERYEAR	FEATHERindex_0
+2019	0
+2020	1

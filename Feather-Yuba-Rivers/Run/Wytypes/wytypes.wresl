@@ -1,0 +1,24 @@
+/************************************
+Wytypes.wresl
+
+Tom FitzHugh BOR 4/27/2010
+
+WATER YEAR TYPE DEFINITIONS
+
+**************************************/
+
+! the Feather Index for the Feather River Basin
+define wyt_FEATHER {
+    case OCTtoJAN_CC0 {
+         condition  month >= OCT .and. month <= JAN .and. Climate_Proj == 0
+         select     FEATHERindex_0
+         from       wytypes
+         where      wateryear=wateryear - 1.}
+    case rest_CC0 {
+         !condition  always
+         condition  month >= FEB .and. month <= SEP .and. Climate_Proj == 0
+         select     FEATHERindex_0
+         from       wytypes
+         where      wateryear=wateryear}
+
+}

@@ -17,6 +17,40 @@ define prj_dr69 {VALUE dr69*perc_dr69 }
 ! define minimum monthly groundwater pumping (using minimum value from  1980-1993 Historical Level CVGSM run)
 ! minimum pumping cannot be more than the diversion requirement
 define minpump_69_prj {VALUE min(mingw_69*perc_dr69,prj_dr69)  }       ! (UNITS = TAF)
+!Split Demand arc d7a
+define D7A {std kind 'FLOW-DELIVERY' units 'CFS'} !Western Canal
+define d7a_pag       {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d7a_pwr       {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d7a_prj       {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d7a_prf       {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+GOAL   split_d7a     {d7a = d7a_prj }  ! Western Canal
+GOAL   split_d7a_prj {d7a_prj = d7a_pag + d7a_pwr + d7a_prf}
+!Split Demand arc d7b
+define D7B {std kind 'FLOW-DELIVERY' units 'CFS'} !Joint Canal
+define d7b_pag     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d7b_pwr     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d7b_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d7b_prf     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_d7b     {d7b = d7b_prj}  ! Joint Board Canal
+goal split_d7b_prj {d7b_prj = d7b_pwr + d7b_pag + d7b_prf }
+!goal subcontinuity216   {d7b_prf - c216b = 0}
+
+define D7C {std kind 'FLOW-DELIVERY' units 'CFS'} !Western Canal and Joint WD rice straw decomp diversions
+!Split Demand arc d201
+define D201 {std kind 'FLOW-DELIVERY' units 'CFS'} !Butte County Diversion
+define d201_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d201_prj    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d201_pimi   {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d201_pomi   {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_201_pmi {d201_pmi = d201_pimi + d201_pomi}
+goal split_201     {d201 = d201_prj}  ! Butte County
+goal split_201_prj {d201_prj = d201_pmi}
+!Split Demand arc d202
+define D202 {std kind 'FLOW-DELIVERY' units 'CFS'} !Themolito ID Diversion
+define d202_pwr     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d202_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_d202     {d202 = d202_prj}  ! Thermalito ID
+goal split_d202_prj {d202_prj = d202_pwr}
 
 !Split the diversion requirement arc C209
 define c209_mi    {STD KIND 'FLOW-CHANNEL' UNITS 'CFS' }  ! total NP M&I deliveries applied to 210

@@ -1,0 +1,8 @@
+
+
+define swp_perdel_sod {timeseries kind 'swp-alloc' units 'percent'} ! SWP allocation from 2019-2020
+
+define swp_perdel_butt {select butt from swp_butt_alloc given swp_sod_alloc=swp_perdel_sod use linear} ! Butte allocation is determined as a function of SOD perdel 
+																								   ! but swp_perdel is not SOD allocation... Assume Total allocation percent ~ SOD allocation percent
+define swp_perdeldv_butt {alias swp_perdel_butt kind 'swp-delivery' units 'none'}
+																								   

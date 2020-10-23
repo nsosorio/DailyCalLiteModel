@@ -5,6 +5,8 @@ Nazrul Islam DWR 05/20/2010
 
 Include all SWP delivery logic files.
 ************************************/
+INCLUDE '\wsi_di\delcar_swp.wresl'
+INCLUDE '\allocation\swp_feather_perdel.wresl'
 INCLUDE '\deliveries\swp_bound_del.wresl'  
 
 

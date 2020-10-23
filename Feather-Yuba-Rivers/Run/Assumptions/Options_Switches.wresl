@@ -1,0 +1,19 @@
+/*************************************
+Options_Switches.wresl
+ 
+Z.Q. Richard Chen DWR (02/07/2011)
+
+Read option switches for lookup table
+**************************************/
+
+define Climate_Proj {
+	/*case LLT{
+		condition int(LOD_DLTSW) == 3
+		value CC_Scenario + 5}
+	case ELT{
+		condition int(LOD_DLTSW) == 2
+		value CC_Scenario}
+	case NO_CC{
+		condition always*/
+		value 0} 
+}

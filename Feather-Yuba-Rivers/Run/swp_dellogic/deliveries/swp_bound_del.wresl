@@ -25,8 +25,8 @@ define ad_d7b_pag   {value perdel_swp_fsc*dem_d7b_pag*taf_cfs}
 define ad_d7b_prf   {value swp_perdel_butt*dem_C216b_prf*taf_cfs}
 define ad_d202_pwr  {value dem_d202_pwr*taf_cfs}
 !(DJE) Need to define allocated diversion limits for d201 and d204.
-!define ad_d201_pimi  {value perdel_swp_oth1*dem_d201_pimi*taf_cfs}
-!define ad_d201_pomi  {value perdel_swp_oth1*dem_d201_pomi*taf_cfs}
+define ad_d201_pimi  {value swp_perdel_butt*dem_d201_pimi*taf_cfs}
+define ad_d201_pomi  {value swp_perdel_butt*dem_d201_pomi*taf_cfs}
 
 define dem_prj_69_init {value max((prj_dr69*taf_cfs - minpump_69_prj*perc_dr69*taf_cfs), 0.0)}
 
