@@ -87,8 +87,8 @@ define minflow_C_Therm {
 ! the max of the minflow_C_Therm and minflow_C_YubFea.
 !=========================================================================
 ! NSO comment out for now until Yuba components are integrated 
-!define minflow_C_YubFea {timeseries kind 'FLOW-MIN-REQUIRED' units 'CFS'}
-goal meetC_Therm_Minflow {C_Therm_MIF < minflow_C_Therm}
+define minflow_C_YubFea {timeseries kind 'FLOW-MIN-REQUIRED' units 'CFS'}
+goal meetC_Therm_Minflow {C_Therm_MIF < max(minflow_C_Therm, minflow_C_YubFea)}
 
 !=========================================================================
 ! DWR maintains flow at the "Mouth of Feather River" based on requirements of diversion 
@@ -162,6 +162,31 @@ define C_Orovl_PP135_max {alias C_Orovl_PP135_max_ kind 'upper-bound' units 'cfs
 
 define C_Therm_min {alias minflow_C_Therm kind 'CHANNEL-MINFLOW' units 'CFS'}
 
+!-KS, 11/20/18. FRSA Winter Water Allocation.
+!Based on recommendation from Aaron Miller (O&M) and Ming-Yen Tu (O&M).
+!Winter water allocations are made in full unless...
+!	(1) Oroville EOS storage is below 900 TAF, then 0% allocation
+!	(2) Oroville EOS storage is above 900 TAF but not enough to meet full 100% winter water allocation
+!	    In this case, winter water allocations are scaled based on previous month storage above 900 TAF, 
+!		current month's inflow and current month's winter water demand.
+!	(3) Protect C203 MIF releases in additional to 900 TAF storage threshold.
+!		minflow_C_Therm = redd dewatering protection
+!		minflow_C223 = DFG/DWR Feather R MIF Agreement between Thermalito Complex and Verona
+
+define decomp_allocdv {std kind 'Decomp-Alloc' units 'None'}
+
+define decomp_alloc {
+	case Oro_high {
+		condition dem_D7C_DCMP > 0. .and. S_OROVL(-1) + (I_OROVL*cfs_TAF) - (max(minflow_C_Therm, minflow_C_YubFea)*cfs_TAF) > 900.
+			value min ((S_OROVL(-1) - 900. + (I_OROVL*cfs_TAF) - (max(minflow_C_Therm, minflow_C_YubFea)*cfs_TAF))/dem_D7C_DCMP, 1.)	}
+	case Oro_cutoff {
+		condition always
+			value 0.0	}
+}
+
+goal setdecomp_alloc {decomp_allocdv = decomp_alloc}
+
+goal set_D7C {D7C < dem_D7C_DCMP*taf_cfs*decomp_alloc}
 /*************************END OF CalLite WRESL CODE**********************/
  
 !=========================================================================
