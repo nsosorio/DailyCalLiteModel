@@ -13,5 +13,5 @@ INCLUDE 'delivery-table.wresl'
 INCLUDE 'reservoir-table.wresl'
 
 !****CONSTRAINTS****   
-!INCLUDE 'AccrDepl-table.wresl'
+INCLUDE 'AccrDepl-table.wresl'
 !INCLUDE 'SOD_SWP_Terminal_Res_Ops.wresl'

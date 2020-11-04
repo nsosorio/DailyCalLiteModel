@@ -11,5 +11,5 @@ Add 3 nodes CCWDIF, SODIF, and Freeport in order to implement IF operation.
 
 goal continuityOrovl {I_Orovl-C_Orovl-D_OROVL-F_Orovl-E_Orovl=S_Orovl*taf_cfs-S_Orovl(-1)*taf_cfs} !Oroville Lake
 goal continuityTherm {C_Orovl+AD_Therm_Actual-C_Therm-D_Therm=0.} !Thermalito
-!goal continuityYubFea {C_Therm+C_Daguer+AD_YubFea_Actual-C_YubFea-D_YubFea=0.} !Yuba Feather River Junction
+goal continuityYubFea {C_Therm+C_Daguer+AD_YubFea_Actual-C_YubFea-D_YubFea=0.} !Yuba Feather River Junction
 goal continuityDaguer {I_Yuba-C_Daguer-D_Daguer=0.} !Daguerre Point

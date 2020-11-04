@@ -19,9 +19,10 @@ Objective obj = {
 [D_Daguer_NP,9999],
 [D_Therm,0],
 [D_YubFea,0],
-![C_Therm,5500],
-![C_YubFea,5500], 
+[C_Therm,5500],
+[C_YubFea,5500], 
 
+[D6,5000],
 [D7A,5000],
 [D7B,5000],
 [D7C,5000],

@@ -98,8 +98,8 @@ goal meetC_Therm_Minflow {C_Therm_MIF < max(minflow_C_Therm, minflow_C_YubFea)}
 ! for CalLite Simulations, see details at end of this file. 
 !=========================================================================
 ! NSO comment out for now until Yuba components are integrated 
-!define minflowFeaMouth {timeseries kind 'FLOW-MIN-REQUIRED' units 'CFS'} !Mouth of Feather River  (232)
-!goal MouthMinFlow {C_YubFea_MIF < minflowFeaMouth}
+define minflowFeaMouth {timeseries kind 'FLOW-MIN-REQUIRED' units 'CFS'} !Mouth of Feather River  (232)
+goal MouthMinFlow {C_YubFea_MIF < minflowFeaMouth}
 
 
 !=========================================================================
