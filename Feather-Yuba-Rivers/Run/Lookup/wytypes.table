@@ -9,6 +9,7 @@
 ! FEATHERindex was updated in a similar fashion as Shasta Index. 
 ! Amer403030 is not used, so it was not updated. 
 wytypes																																																																													
-WATERYEAR	FEATHERindex_0
-2019	0
-2020	1
+WATERYEAR	SACindex	FEATHERindex_0
+2018          3          0
+2019          1          0
+2020          4          1
