@@ -5,6 +5,8 @@ Objective obj = {
 [C_Orovl_EXC,0],
 [C_Therm_MIF,5500],
 [C_Therm_EXC2,-6],
+[C_YubFea_MIF,5500],
+[C_YubFea_EXC,0],
 [D_Orovl,5000],
 [S_Orovl_1,40000*taf_cfs],
 [S_Orovl_2,93*taf_cfs],
@@ -16,6 +18,7 @@ Objective obj = {
 
 [D_Daguer_NP,9999],
 [D_Therm,0],
+[D_YubFea,0],
 ![C_Therm,5500],
 ![C_YubFea,5500], 
 
@@ -25,5 +28,8 @@ Objective obj = {
 
 [D201,9999],
 [D202,5000],
-
+[D204,9999],
+[D206A,5000],
+[D206B,5000],
+[D206C,5000],
 }

@@ -35,7 +35,7 @@ goal setAD_SacFea_Actual2{
 }
 define short_AD_SacFea {lower unbounded upper unbounded kind 'Shortage-Flow' units 'cfs'}
 goal short_ADSacFea {short_AD_SacFea=AD_SacFea_Actual-AD_SacFea}
-
+*/
 !Feather River
 define AD_Therm {timeseries kind 'FLOW-ACCRDEPL' units 'CFS'}
 define AD_Therm_Actual {lower unbounded upper unbounded kind 'FLOW-ACCRDEPL' units 'CFS'}
@@ -110,4 +110,4 @@ goal setAD_YubFea_Actual2{
 }
 define short_AD_YubFea {lower unbounded upper unbounded kind 'Shortage-Flow' units 'cfs'}
 goal short_ADYubFea {short_AD_YubFea=AD_YubFea_Actual-AD_YubFea}
-*/
+

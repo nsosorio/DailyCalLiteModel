@@ -6,6 +6,11 @@ define D_Therm_P {std kind 'FLOW-DELIVERY' units 'CFS'} !Project Diversion at Th
 define D_Therm {std kind 'FLOW-DELIVERY' units 'CFS'} !Diversion at Thermalito
 goal Diversion_Therm {D_Therm = D_Therm_P}
 
+define D_YubFea_P {std kind 'FLOW-DELIVERY' units 'CFS'} !Project Diversion at Yuba Feather Confluence
+define D_YubFea_NP {std kind 'FLOW-DELIVERY' units 'CFS'} !Non-Project Diversion at Yuba Feather Confluence
+define D_YubFea {std kind 'FLOW-DELIVERY' units 'CFS'} !Diversion at Yuba Feather Confluence
+goal Diversion_YubFea {D_YubFea = D_YubFea_P + D_YubFea_NP}
+
 define demand_D_Daguer_NP {timeseries kind 'DEMAND' units 'CFS'}!Dagurre Point Non-Project 
 define D_Daguer_NP {std kind 'FLOW-DELIVERY' units 'CFS'} !Non Project Diversion at Daguerre Point
 define D_Daguer {std kind 'FLOW-DELIVERY' units 'CFS'} !Diversion at Daguerre Point

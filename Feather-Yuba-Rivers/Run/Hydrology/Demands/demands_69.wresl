@@ -52,8 +52,47 @@ define d202_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
 goal split_d202     {d202 = d202_prj}  ! Thermalito ID
 goal split_d202_prj {d202_prj = d202_pwr}
 
+!Split Demand arc d204
+define D204 {std kind 'FLOW-DELIVERY' units 'CFS'} !Yuba City
+define d204_pmi     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d204_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d204_pimi   {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d204_pomi   {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_204_pmi {d204_pmi = d204_pimi + d204_pomi}
+goal split_d204     {d204 = d204_prj}  ! Yuba City
+goal split_d204_prj {d204_prj = d204_pmi}
+
+!Split Demand arc d206a
+define D206A {std kind 'FLOW-DELIVERY' units 'CFS'} !Feather Water District
+define d206a_pag     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d206a_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_d206a     {d206a = d206a_prj}  ! Feather WD
+goal split_d206a_prj {d206a_prj = d206a_pag}
+
+!Split Demand arc d206b
+define D206B {std kind 'FLOW-DELIVERY' units 'CFS'} !Misc FRSA
+define d206b_pag     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d206b_pwr     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d206b_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_d206b     {d206b = d206b_prj } ! Miscellaneous FRSA
+goal split_d206b_prj {d206b_prj = d206b_pag + d206b_pwr}
+
+!Split Demand arc d206c
+define D206C {std kind 'FLOW-DELIVERY' units 'CFS'} !Joint Board at Sunset Pumps
+define d206c_pag     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d206c_pwr     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+define d206c_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+goal split_d206c     {d206c = d206c_prj } ! Miscellaneous FRSA
+goal split_d206c_prj {d206c_prj = d206c_pag + d206c_pwr}
+
+!Additional non-project surface water deliveries
+define D207A {std kind 'FLOW-DELIVERY' units 'CFS'}
+
 !Split the diversion requirement arc C209
 define c209_mi    {STD KIND 'FLOW-CHANNEL' UNITS 'CFS' }  ! total NP M&I deliveries applied to 210
 
 !Constrain flow in the C209_prj and its sub arcs.
 goal set_c209_mi   {C209_mi = D_Daguer_NP}
+
+!Set non-project Feather River diversions
+goal setD_YubFea_NP{D_YubFea_NP=D207A}
