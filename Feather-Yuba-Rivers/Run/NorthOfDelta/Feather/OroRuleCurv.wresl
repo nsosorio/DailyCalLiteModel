@@ -16,16 +16,7 @@ Sets Oroville rule curve (Oroville Storage Level 3 and Level 4 values)
 
 ***/
 define OroSepTarg { ! DrainTar_buffer = 0 when int(OMRBOON)==1 as defined in delcar_swp.wresl
-!   case a_X{
-!    condition wateryear==2019 .and. month<=dec
-!    value min(1000. + 0.5*max(S_Orovl(prevSep) - 1000. /*- DrainTar_buffer*/ ,0.), S_OrovlLevel5) }
-
-!  case b_X{
-!    condition always
-    !value min(1000. + 0.5 * (swp_allocation-tableA_loss)/SWP_TableA
-    !                      * max(S_Orovl(prevSep) - 1000. - DrainTar_buffer ,0.), S_OrovlLevel5) }
-	value min(1000. + 0.5*max(S_Orovl(prevSep) - 1000. /*- DrainTar_buffer*/ ,0.), S_OrovlLevel5) }
-!}
+	value min(1600. , S_OrovlLevel5) }
 
 define OroNextMonTarg {
           value min(OroSepTarg + (max(S_Orovl(-1) - OroSepTarg,0.)/(Sep-month+1.))*(Sep-month), S_OrovlLevel5)
