@@ -3,12 +3,16 @@
 Objective obj = {
 [C_Orovl_MIF,5500],
 [C_Orovl_EXC,0],
+[C_OROVL_IBU, -1250]
+[C_OROVL_VALVE, 0.01]
+[C_OROVL_PP135, 0.02],
+[C_OROVL_Rem, 0.03],		!-KS, 10/5/2018. Noticed that releases were made from the river valve (C6_valve) before Units 2, 4 and 6 which are at an higher elevation. Confirmed with B Giorgi at O&M.
 [C_Therm_MIF,5500],
 [C_Therm_EXC2,-6],
 [C_YubFea_MIF,5500],
 [C_YubFea_EXC,0],
 [D_Orovl,5000],
-[S_Orovl_1,40000*taf_cfs],
+[S_Orovl_1,20000*taf_cfs],
 [S_Orovl_2,93*taf_cfs],
 [S_Orovl_3,88*taf_cfs],
 [S_Orovl_4,84*taf_cfs],
@@ -19,8 +23,8 @@ Objective obj = {
 [D_Daguer_NP,9999],
 [D_Therm,0],
 [D_YubFea,0],
-[C_Therm,5500],
-[C_YubFea,5500], 
+![C_Therm,5000], ! Comment out for now since the sub arcs for Thermalito already have weights
+![C_YubFea,5000], ! Comment out for now since the sub arcs for Thermalito already have weights
 
 [D6,5000],
 [D7A,5000],
