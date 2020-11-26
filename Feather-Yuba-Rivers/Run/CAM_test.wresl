@@ -1,0 +1,8 @@
+define DM_31days {value 31} ! January, March, Mary, July, August, October, December
+define DM_30days {value 30} ! April, June, September, November
+define DM_Febdays {value 28}
+
+! Using wresl plus, one rule can be looped for 30 or so days.
+
+! MIF requirements
+define (fd)
