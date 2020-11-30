@@ -60,3 +60,19 @@ define wyt_FEATHER {
          where      wateryear=wateryear}
 
 }
+
+define wyt_SHASTA_cvp {
+        case OCTtoFEB_CC0 {
+        condition   month >= OCT .and. month <= FEB .and. Climate_Proj == 0
+        select      SHASTAindex_0
+        from        wytypes
+        where       wateryear=wateryear - 1.}
+        
+        case rest_CC0 {
+        !condition   always
+        condition   month >= MAR .and. month <= SEP .and. Climate_Proj == 0
+        select      SHASTAindex_0
+        from        wytypes
+        where       wateryear=wateryear}
+}
+        
