@@ -18,13 +18,21 @@ Objective obj = {
 [S_Orovl_4,84*taf_cfs],
 [S_Orovl_5,62*taf_cfs],
 [S_Orovl_6,-10000*taf_cfs],
+[S_Folsm_1,40000*taf_cfs],
+[S_Folsm_2,93*taf_cfs],
+[S_Folsm_3,88*taf_cfs],
+[S_Folsm_4,84*taf_cfs],
+[S_Folsm_5,50*taf_cfs],
+[S_Folsm_6,-10000*taf_cfs],
 [F_Orovl,-100000],
-
+[F_Folsm,-100000],
 [D_Daguer_NP,9999],
 [D_Therm,0],
 [D_YubFea,0],
 ![C_Therm,5000], ! Comment out for now since the sub arcs for Thermalito already have weights
 ![C_YubFea,5000], ! Comment out for now since the sub arcs for Thermalito already have weights
+[D_Folsm_P,5000],
+[D_Folsm_NP,5100],
 
 [D6,5000],
 [D7A,5000],
