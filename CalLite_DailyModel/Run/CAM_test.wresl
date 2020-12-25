@@ -4,5 +4,10 @@ define DM_Febdays {value 28}
 
 ! Using wresl plus, one rule can be looped for 30 or so days.
 
-! MIF requirements
-define (fd)
+define delta_t {value 1.}
+
+define K_THERM {value 8}
+define X_THERM {value 0.2}
+goal C_THERM { C_THERM < ((1-2*(K_THERM/24)*X_THERM)/(2*(K_THERM/24)*(1-X_THERM)+1))*C_OROVL
+				+ ((1+2*(K_THERM/24)*X_THERM)/(2*(K_THERM/24)*(1-X_THERM)+1))*C_OROVL(-1)
+				+ (((K_THERM/24)*(1-X_THERM))-1/(2*(K_THERM/24)*(1-X_THERM)+1))*C_THERM(-1)}

@@ -1,0 +1,45 @@
+! Main WRESL Files contains the paths to run the model.
+SEQUENCE CYCLE1 {
+    model   Upstream
+    order   1
+    }
+
+group Tdomain {
+	
+	! Define start month and start water year
+	define bgnwy {value 1994}
+	define endwy {value 2003}
+	define bgnmo {value OCT}
+	
+	! Conversion factors
+	define daysindv {alias daysin kind 'DAYS' units 'days'}
+	define cfs_cfm     { value daysin * 86400.0}
+	define taf_cfm {value 43560*1000}  !AF/month to ft^3/month
+}
+MODEL block1 {
+    INCLUDE '\Assumptions\Options_Switches.wresl'
+    !INCLUDE 'wytypes\wytypes.wresl'
+	
+}
+
+MODEL block2 {
+    INCLUDE 'System\System.wresl'
+	
+}
+MODEL block3 {
+    !INCLUDE 'hydrology\demands\demands_defs.wresl'
+    !INCLUDE 'swp_dellogic\SwpDeliveryLogic.wresl'
+	!INCLUDE 'NorthofDelta\NOD.wresl'
+    INCLUDE 'System\connectivity-table.wresl'     
+    !INCLUDE 'System\weight-table.wresl'
+
+}
+
+MODEL Upstream {
+include group Tdomain
+include model block1
+include model block2
+include model block3	
+    !INCLUDE [LOCAL] 'Shortage\shortage.wresl' 	
+
+}

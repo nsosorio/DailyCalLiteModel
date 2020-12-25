@@ -1,0 +1,2 @@
+define C_Folsm {lower 0. upper 7071.*taf_cfs kind 'FLOW-CHANNEL' units 'CFS'} !AMERICAN RIVER DOWNSTREAM OF FOLSOM LAKE
+

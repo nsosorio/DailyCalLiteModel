@@ -1,0 +1,9 @@
+/**********************
+Connectivity-table.wresl
+
+Z.Q. Richard Chen DWR 10/5/2012
+
+Add 3 nodes CCWDIF, SODIF, and Freeport in order to implement IF operation.
+***********************/
+goal continuityFolsm {I_Folsm-C_Folsm=0.} !Folsom Lake
+!goal continuityFolsm {I_Folsm-C_Folsm-D_Folsm-F_Folsm-E_Folsm=S_Folsm*taf_cfs-S_Folsm(-1)*taf_cfs} !Folsom Lake
