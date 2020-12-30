@@ -8,6 +8,6 @@ Objective obj = {
 [S_Folsm_5,50*taf_cfs],
 [S_Folsm_6,-10000*taf_cfs],
 [F_Folsm,-100000],
-[D_Folsm_P,5000],
-[D_Folsm_NP,5100],
+![D_Folsm_P,5000],
+![D_Folsm_NP,5100],
 }
