@@ -22,42 +22,31 @@ define FolInf {value (I_Folsm  + AD_Nimbus)*cfs_taf }   !AD_Nimbus used here sin
 
 define FolInfEst {sum(i=0,SEP-month,1) (I_Folsm(i)+ AD_Nimbus(i))*cfs_taf(i) }
 
-define FolDiv {value 0. } /* (DEM_D300_WR_ANN ) * perdem_70pcwa +
-                      DEM_D8A_WR_ANN * perdem_70nrwd +
-                     (DEM_D8B_WR_ANN + DEM_D8B_PMI_ANN) * perdem_70fol +
-                      DEM_D8C_WR_ANN * perdem_70folp +
-                      DEM_D8D_WR_ANN * perdem_70sjwdp +
-                     (DEM_D8E_WR_ANN + DEM_D8E_PMI_ANN) * perdem_70sjwds +
-                     (DEM_D8F_WR_ANN + DEM_D8F_PMI_ANN) * perdem_70eldor +
-                     (DEM_D8G_WR_ANN + DEM_D8G_PMI_ANN) * perdem_70rose +
+define FolDiv {value  demand_D_Nimbus_NP*cfs_taf + demand_D_Folsm_NP*cfs_taf +
+		      DEM_D8B_PMI_ANN * perdem_70fol +
+                      DEM_D8E_PMI_ANN * perdem_70sjwds +
+                      DEM_D8F_PMI_ANN * perdem_70eldor +
+                      DEM_D8G_PMI_ANN * perdem_70rose +
                       DEM_D8h_PMI_ANN * perdem_70pcwa +
                       DEM_D8i_PMI_ANN * perdem_70eldorco +
-                      DEM_D9AA_WR_ANN * perdem_70scwc +
                       DEM_D9AB_PMI_ANN * perdem_70carec +
-                      DEM_D9A_PLS * cfs_taf +
-!                      DEM_D9BG_PAG_ANN * perdem_70 +
-                      DEM_D9B_PMI_ANN * perdem_70smud}*/
+                      DEM_D9B_PMI_ANN * perdem_70smud}
 ! Add demands/deliveries later. Just want to add bare bones rule curve logic. 12/29/2020
 
-define FolDivEst {value 0.} /* {sum(i=0,SEP-month,1)
-            ((DEM_D300_WR_ANN(i)) * perdem_70pcwa(i) +
-                      DEM_D8A_WR_ANN(i) * perdem_70nrwd(i) +
-                     (DEM_D8B_WR_ANN(i) + DEM_D8B_PMI_ANN(i)) * perdem_70fol(i) +
-                      DEM_D8C_WR_ANN(i) * perdem_70folp(i) +
-                      DEM_D8D_WR_ANN(i) * perdem_70sjwdp(i) +
-                     (DEM_D8E_WR_ANN(i) + DEM_D8E_PMI_ANN(i)) * perdem_70sjwds(i) +
-                     (DEM_D8F_WR_ANN(i) + DEM_D8F_PMI_ANN(i)) * perdem_70eldor(i) +
-                     (DEM_D8G_WR_ANN(i) + DEM_D8G_PMI_ANN(i)) * perdem_70rose(i) +
+define FolDivEst {sum(i=0,SEP-month,1)
+            	     (demand_D_Nimbus_NP(i)*cfs_taf(i) + demand_D_Folsm_NP(i)*cfs_taf(i) +
+		      DEM_D8B_PMI_ANN(i) * perdem_70fol(i) +
+                      DEM_D8E_PMI_ANN(i) * perdem_70sjwds(i) +
+                      DEM_D8F_PMI_ANN(i) * perdem_70eldor(i) +
+                      DEM_D8G_PMI_ANN(i) * perdem_70rose(i) +
                       DEM_D8h_PMI_ANN(i) * perdem_70pcwa(i) +
                       DEM_D8i_PMI_ANN(i) * perdem_70eldorco(i) +
-                      DEM_D9AA_WR_ANN(i) * perdem_70scwc(i) +
                       DEM_D9AB_PMI_ANN(i) * perdem_70carec(i) +
-                      DEM_D9A_PLS(i) * cfs_taf(i) +
-!                      DEM_D9BG_PAG_ANN(i) * perdem_70(i) +
-                      DEM_D9B_PMI_ANN(i) * perdem_70smud(i)) } */
+                      DEM_D9B_PMI_ANN(i) * perdem_70smud(i)) }
 ! Add demands/deliveries later. Just want to add bare bones rule curve logic. 12/29/2020
 
 define FolSupEst {value max(0.0,FolInfEst - FolDivEst + S_Folsm(-1) - S_FolsmLevel3)}
+
 define FolSupEstdv {alias FolSupEst kind 'FORECAST' units 'TAF'}
 
 define FolFlowTarg {value (FolSupEst/cfs_taf)/(Sep-month+1.) }

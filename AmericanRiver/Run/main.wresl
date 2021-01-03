@@ -27,7 +27,7 @@ MODEL block2 {
 	
 }
 MODEL block3 {
-    !INCLUDE 'hydrology\demands\demands_defs.wresl'
+    INCLUDE 'hydrology\demands\demands_defs.wresl'
     !INCLUDE 'swp_dellogic\SwpDeliveryLogic.wresl'
 	INCLUDE 'NorthofDelta\NOD.wresl'
     INCLUDE 'System\connectivity-table.wresl'     

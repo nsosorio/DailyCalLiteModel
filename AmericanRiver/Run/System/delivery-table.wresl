@@ -1,0 +1,12 @@
+define demand_D_Folsm_NP {timeseries kind 'DEMAND' units 'CFS'}!Non-Project Diversion from Folsom reservoir
+/*define D_Folsm_P {std kind 'FLOW-DELIVERY' units 'CFS'}!Project Diversion from Folsom reservoir
+define D_Folsm_NP {std kind 'FLOW-DELIVERY' units 'CFS'}!NonProject Diversion from Folsom reservoir
+define D_Folsm {std kind 'FLOW-DELIVERY' units 'CFS'}!Diversion from Folsom reservoir
+goal meet_D_Folsm_NP {D_Folsm_NP = demand_D_Folsm_NP}
+goal Diversion_Folsm {D_Folsm=D_Folsm_P+D_Folsm_NP}*/
+define demand_D_Nimbus_NP {timeseries kind 'DEMAND' units 'CFS'} !Non-Project Diversion at Nimbus
+/*define D_Nimbus_P {std kind 'FLOW-DELIVERY' units 'CFS'} !Project Diversion at Nimbus
+define D_Nimbus_NP {std kind 'FLOW-DELIVERY' units 'CFS'} !NonProject Diversion at Nimbus
+define D_Nimbus {std kind 'FLOW-DELIVERY' units 'CFS'} !Diversion at Nimbus
+goal meet_D_Nimbus_NP {D_Nimbus_NP = demand_D_Nimbus_NP}
+goal Diversion_Nimbus {D_Nimbus=D_Nimbus_P+D_Nimbus_NP}*/
