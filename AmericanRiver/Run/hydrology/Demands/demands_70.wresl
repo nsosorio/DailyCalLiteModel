@@ -1,0 +1,85 @@
+/*************************************
+demands_70.wresl
+ 
+Tom FitzHugh BOR 5/20/2010
+
+Handles demand/delivery logic for DSA70.  The deliveries covered here are aggregated into CalLite 
+deliveries at nodes SacAmerican, Folsom, and Nimbus.
+**************************************/
+
+/*** NOTE: All this code is copied from Calsim, but note that in the definitions of adj_D167b_pmi etc.
+below, the timeseries annual demand (e.g. dem_D167b_pmi_a) is always identical to the demand from 
+America_PRJ_WR.table (dem1_D167b_pmi_a).  So using both demands doesn't seem necessary.  But leaving 
+for now to replicate Calsim ***/
+
+! Define contract demand limits.  Uses minimum of value from timeseries of annual demands (adjusted
+! for cutbacks) and value from American_PRJ_WR.table, which is then multiplied by monthly percent.  
+! Exceptions are D162 demands, which only use the timeseries adjusted for cutbacks.
+/*** SacAmerican node deliveries ***/
+
+/*** Folsom node deliveries ***/
+! Folsom city   Annual project demand - PL 101-514
+define dem1_D8b_pmi_a {
+        select Folsom from American_PRJ_WR where index=3}
+
+define adj_D8b_pmi_ann {value min(dem_D8b_pmi_ann, dem1_D8b_pmi_a * perdel_cvpmi_sys)} !Adjust contract amount for CVP cuts
+define adj_D8b_pmi {value adj_D8b_pmi_ann * perdem_70Fol * taf_cfs}
+
+
+define d8_prj     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'}
+define d8_pmi     {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'}
+define d8b_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'} 
+define d8e_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'} 
+define d8f_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'} 
+define d8g_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'} 
+define d8h_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'} 
+define d8i_pmi    {STD KIND 'FLOW-DELIVERY' UNITS 'CFS'} 
+goal set_d8_prj   {d8_prj = d8_pmi}
+goal set_d8_pmi   {d8_pmi = d8b_pmi + d8e_pmi + d8f_pmi + d8g_pmi + d8h_pmi + d8i_pmi}
+
+!Set the upper limit for the allocations of demand arcs 
+/*** Note sure if all of these statements are necessary (from demands_70.wresl), since 
+the goals at the end of this file (from cvp_bound_del_sys.wresl) do the same thing
+but incorporate diversion requirements and cuts in contract demands too ... but leaving
+here for now ***/
+goal limit_d8b_pmi {d8b_pmi < adj_D8b_pmi} 
+goal limit_d8e_pmi {d8e_pmi < adj_D8e_pmi} 
+goal limit_d8f_pmi {d8f_pmi < adj_D8f_pmi} 
+goal limit_d8g_pmi {d8g_pmi < adj_D8g_pmi} 
+goal limit_d8h_pmi {d8h_pmi < adj_D8h_pmi} 
+goal limit_d8i_pmi {d8i_pmi < adj_D8i_pmi}
+
+! Defines adjusted contract demands (most of these were already computed at the top of this file)
+define ad_d8b_pmi  {value adj_d8b_pmi}
+define ad_d8e_pmi  {value adj_d8e_pmi}
+define ad_d8f_pmi  {value adj_d8f_pmi}
+define ad_d8g_pmi  {value adj_d8g_pmi}
+define ad_d8h_pmi  {value adj_d8h_pmi}
+define ad_d8i_pmi  {value adj_d8i_pmi}
+
+/* NOTE: Calsim also includes ad_d300_pmi in the sum below.  Left out here because D300 is upstream
+of CalLite Folsom inflow I_Folsm, and this shouldn't matter because the time series for dem_d300_pmi_ann
+is all 0s, so there would never be deliveries here anyway */
+!***************************************************
+define ad_sum_70_prj    {value max(ad_d8b_pmi + ad_d8e_pmi + ad_d8f_pmi + ad_d8g_pmi + ad_d8h_pmi + ad_d8i_pmi, 0.00001)}
+
+!Now define the amount to reduce the Allowable Diversions by to equal the Project Diversion Requirement
+define extra_70_prj {value max((ad_sum_70_prj - prj_dr70*taf_cfs - prj_dr70_imi*taf_cfs + minpump_70_prj*taf_cfs), 0.0)}
+
+define ad_sum_70_prjdv {alias ad_sum_70_prj units 'cfs'}
+define extra_70_prjdv  {alias extra_70_prj  units 'cfs'}
+
+define extra_d8b_pmi   {value extra_70_prj*(ad_d8b_pmi/ad_sum_70_prj)}
+define extra_d8e_pmi   {value extra_70_prj*(ad_d8e_pmi/ad_sum_70_prj)}
+define extra_d8f_pmi   {value extra_70_prj*(ad_d8f_pmi/ad_sum_70_prj)}
+define extra_d8g_pmi   {value extra_70_prj*(ad_d8g_pmi/ad_sum_70_prj)}
+define extra_d8h_pmi   {value extra_70_prj*(ad_d8h_pmi/ad_sum_70_prj)}
+define extra_d8i_pmi   {value extra_70_prj*(ad_d8i_pmi/ad_sum_70_prj)}
+
+!**************  FINAL GOALS for DSA 70 percent deliveries  *************
+goal reduce_d8b_pmi        {d8b_pmi < ad_d8b_pmi - extra_d8b_pmi}
+goal reduce_d8e_pmi        {d8e_pmi < ad_d8e_pmi - extra_d8e_pmi}
+goal reduce_d8f_pmi        {d8f_pmi < ad_d8f_pmi - extra_d8f_pmi}
+goal reduce_d8g_pmi        {d8g_pmi < ad_d8g_pmi - extra_d8g_pmi}
+goal reduce_d8h_pmi        {d8h_pmi < ad_d8h_pmi - extra_d8h_pmi}
+goal reduce_d8i_pmi        {d8i_pmi < ad_d8i_pmi - extra_d8i_pmi}
