@@ -18,16 +18,24 @@ group Tdomain {
 }
 MODEL block1 {
     INCLUDE '\Assumptions\Options_Switches.wresl'
-    !INCLUDE 'wytypes\wytypes.wresl'
+    INCLUDE 'wytypes\wytypes.wresl'
+    INCLUDE '\cvp_dellogic\CvpSysDeliveryLogicCycle1.wresl'            
 	
 }
 
 MODEL block2 {
-    INCLUDE 'System\System.wresl'
+    INCLUDE '\Assumptions\Options_Switches.wresl'
+    INCLUDE 'wytypes\wytypes.wresl'  
 	
 }
 MODEL block3 {
+    INCLUDE 'System\System.wresl'
+	
+}
+MODEL block4 {
     INCLUDE 'hydrology\demands\demands_defs.wresl'
+    INCLUDE 'cvp_dellogic\CVP_delivery_Logic_system.wresl'
+    INCLUDE 'hydrology\demands\demands.wresl'    
     !INCLUDE 'swp_dellogic\SwpDeliveryLogic.wresl'
 	INCLUDE 'NorthofDelta\NOD.wresl'
     INCLUDE 'System\connectivity-table.wresl'     
@@ -37,9 +45,9 @@ MODEL block3 {
 
 MODEL Upstream {
 include group Tdomain
-include model block1
 include model block2
 include model block3	
+include model block4
     !INCLUDE [LOCAL] 'Shortage\shortage.wresl' 	
 
 }

@@ -7,6 +7,9 @@ Defines variables for DSA70 delivery logic.  The deliveries covered here are agg
 CalLite deliveries at nodes SacAmerican, Folsom, and Nimbus.
 **************************************/
 
+!Deliveries by type
+define D_Folsm_pmi {STD KIND 'FLOW-DELIVERY' UNITS 'CFS' }
+
 !Monthly delivery pattern for each of the water purveyors
 define perdem_70       {timeseries kind 'DELIVERY-PATTERN' units 'NONE'} !AG monthly distribution--DSA 70
 define perdem_70smud   {timeseries kind 'DELIVERY-PATTERN' units 'NONE'} !MI monthly distribution--SMUD Folsom South Canal
@@ -35,3 +38,8 @@ define dem_D8h_pmi_ann   {timeseries kind 'DEMAND-CVP-MI' units 'TAF'}  !Annual 
 define dem_D8i_pmi_ann   {timeseries kind 'DEMAND-CVP-MI' units 'TAF'}  !Annual project demand--El Dorado County PL 101-514
 define dem_D9ab_pmi_ann  {timeseries kind 'DEMAND-CVP-MI' units 'TAF'}  !Annual project demand--Cal Parks & Rec
 define dem_D9b_pmi_ann   {timeseries kind 'DEMAND-CVP-MI' units 'TAF'}  !Annual project demand--SMUD Folsom South Canal
+
+! Timeseries for defining diversion requirements
+define prj_dr70 {timeseries kind 'DIV-REQUIREMENT' units 'TAF'} ! project diversion requirement
+define minpump_70_prj {timeseries kind 'MINPUMP' units 'TAF'} ! project portion of minimum gw pumping 
+define prj_dr70_imi {timeseries kind 'DEM-CVP-INDOORMI' units 'TAF'} ! Additional project diversion requirement for indoor M&I demand

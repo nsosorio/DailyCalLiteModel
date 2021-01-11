@@ -65,5 +65,5 @@ define CVP_pmi_ratio_sys /*{case user_defined  {condition CVPdemandswitch == 2 v
 define CVP_prf_ratio_sys /*{case user_defined  {condition CVPdemandswitch == 2 value acvpdem_prf_udef_sys / acvpdem_prf_sys}
                           case full_contract {condition always value 1.}}*/
                           {value 1.}
-define acvpdem_tot_sys {value acvpdem_pag_sys + acvpdem_pmi_sys + acvpdem_prf_sys + acvpdem_pex_sys + acvpdem_psc_sys + acvpdem_pls_sys}
+!define acvpdem_tot_sys {value acvpdem_pag_sys + acvpdem_pmi_sys + acvpdem_prf_sys + acvpdem_pex_sys + acvpdem_psc_sys + acvpdem_pls_sys}
 define CVP_tot_ratio_sys {value 1.}
