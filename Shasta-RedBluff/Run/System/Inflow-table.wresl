@@ -1,2 +1,0 @@
-define I_Shsta {timeseries kind 'FLOW-INFLOW' units 'CFS'} !Shasta Lake Inflow
-

@@ -1,9 +1,0 @@
-Objective obj = {
-[S_Shsta_1,40000*taf_cfs],
-[S_Shsta_2,93*taf_cfs],
-[S_Shsta_3,88*taf_cfs],
-[S_Shsta_4,84*taf_cfs],
-[S_Shsta_5,50*taf_cfs],
-[S_Shsta_6,-10000*taf_cfs],
-[F_Shsta,-100000],
-}

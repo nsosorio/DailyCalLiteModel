@@ -1,8 +1,0 @@
-!*******************************************************
-!shortage.wresl
-!Z.Q. Richard Chen 9/28/2012
-!
-! This defines the shortage include files for cvp sod shortages and swp shortages
-!********************************************************
-
-include 'shortage_swp.wresl'

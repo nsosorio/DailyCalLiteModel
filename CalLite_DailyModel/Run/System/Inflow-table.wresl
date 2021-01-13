@@ -1,3 +1,0 @@
-define I_Orovl        {timeseries kind 'INFLOW' units 'CFS'}
-define I_Yuba {timeseries kind 'FLOW-INFLOW' units 'CFS'} !Engle Bright flow
-define I_Folsm {timeseries kind 'FLOW-INFLOW' units 'CFS'} !Folsom Lake inflow
